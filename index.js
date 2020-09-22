@@ -1,6 +1,7 @@
 const date = moment();
 const beginDate = moment().subtract(1, "year");
 const monthTracker = moment().subtract(1, "year");
+let selectedColor = '#216e39';
 
 const activeCellscount = document.getElementById('activeCellsCount');
 let cellsCount = 0;
@@ -17,9 +18,9 @@ for (diff; diff > 0; diff -= 7) {
   let row = document.createElement("tr");
   row.className = "row";
 
-  console.log(`
-  monthTracker ${monthTracker.format('MMM')}`)
-  console.log(`beginDate ${beginDate.format('MMM')}`)
+  // console.log(`
+  // monthTracker ${monthTracker.format('MMM')}`)
+  // console.log(`beginDate ${beginDate.format('MMM')}`)
 
   let monthValue = document.createTextNode(` `);
   if (monthTracker.format('MMM') == beginDate.format('MMM')) {
@@ -33,7 +34,6 @@ for (diff; diff > 0; diff -= 7) {
   // }
 
   const headerCellWrapper = document.createElement("td");
-  headerCellWrapper.colSpan = '2'
   headerCellWrapper.className = "headerCell";
   headerCellWrapper.appendChild(monthValue);
   row.appendChild(headerCellWrapper);
@@ -59,23 +59,30 @@ tableWrapper.addEventListener('click', activate_cell, false);
 
 function activate_cell(event) {
 
-  console.log(event.target.classList)
   if (event.target.classList.contains('cell')) {
-    if ((event.target.classList.contains('active_cell'))) {
-      event.target.classList.remove("active_cell");
-      if (cellsCount > 0) {
-        cellsCount -= 1;
-        activeCellscount.innerHTML = cellsCount;
+    event.target.style.backgroundColor = selectedColor;
+    cellsCount += 1;
+    if (selectedColor == 'rgb(235, 237, 240)') {
+      cellsCount -= 1;
+    } else { }
+    activeCellscount.innerHTML = cellsCount;
+  }
+}
 
-      }
-
-    }
-    else {
-      event.target.classList.add("active_cell");
-      cellsCount += 1;
-      activeCellscount.innerHTML = cellsCount;
-
+const colorPickerwrapper = document.getElementById('colorPickerwrapper')
+colorPickerwrapper.addEventListener('click', changeColor, false);
+let currentColorId = 'col5';
+function changeColor(event) {
+  if (event.target.classList.contains('colorOption')) {
+    console.log(document.getElementById(currentColorId));
+    document.getElementById(currentColorId).classList.remove('selected');
+    if (!event.target.classList.contains('selected')) {
+      currentColorId = event.target.id;
+      event.target.classList.add('selected');
+      selectedColor = getComputedStyle(event.target).backgroundColor;
+      console.log(selectedColor)
 
     }
   }
+
 }
