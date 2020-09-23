@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
 
-  <body>
-    <main class="main">
-      <header class="header">
-        <div class="header">
-          <span class="cont-count" id="activeCellsCount"></span>
-          <span> contributions in the last year</span>
-        </div>
-      </header>
-      <div class="table-container" id="tableWrapper"></div>
-      <div class="colorPickerWrapper" id="colorPickerwrapper">
-        <span>Less</span>
-        <div class="colorOption" id="col1"></div>
-        <div class="colorOption" id="col2"></div>
-        <div class="colorOption" id="col3"></div>
-        <div class="colorOption" id="col4"></div>
-        <div class="colorOption selected" id="col5"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
 
-        <span>More</span>
+<body>
+  <header>
+    <div class="header">
+      <h1>Github profile Activity clone</h1>
+      <div class="siteInfoWrapper">
+        <span class="siteInfo">Made by <a href="" target="_blank" class="externalLink">Mohamed Atta</a></span>
+        <span class="siteInfo">Project code <a href="" target="_blank" class="externalLink">here</a></span>
       </div>
-    </main>
-    <script src="https://unpkg.com/moment"></script>
 
-    <script src="index.js"></script>
-  </body>
+    </div>
+  </header>
+  <main class="main">
+
+    <div>
+      <span class="cont-count" id="activeCellsCount"></span>
+
+      <span> contributions in the last year</span>
+    </div>
+    <div class="table-container" id="tableWrapper"></div>
+    <div class="colorPickerWrapper" id="colorPickerwrapper">
+      <span>Less</span>
+      <div class="colorOption" id="col1"></div>
+      <div class="colorOption" id="col2"></div>
+      <div class="colorOption" id="col3"></div>
+      <div class="colorOption" id="col4"></div>
+      <div class="colorOption selected" id="col5"></div>
+
+      <span>More</span>
+    </div>
+  </main>
+  <script src="https://unpkg.com/moment"></script>
+
+  <script src="index.js"></script>
+</body>
+
 </html>

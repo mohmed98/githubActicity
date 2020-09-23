@@ -1,9 +1,9 @@
 const date = moment();
 const beginDate = moment().subtract(1, "year");
 const monthTracker = moment().subtract(1, "year");
-let selectedColor = '#216e39';
+let selectedColor = "rgb(33, 110, 57)";
 
-const activeCellscount = document.getElementById('activeCellsCount');
+const activeCellscount = document.getElementById("activeCellsCount");
 let cellsCount = 0;
 activeCellscount.innerHTML = cellsCount;
 // console.log(date._d);
@@ -23,11 +23,9 @@ for (diff; diff > 0; diff -= 7) {
   // console.log(`beginDate ${beginDate.format('MMM')}`)
 
   let monthValue = document.createTextNode(` `);
-  if (monthTracker.format('MMM') == beginDate.format('MMM')) {
+  if (monthTracker.format("MMM") == beginDate.format("MMM")) {
     monthTracker.add(1, "months");
-    monthValue = document.createTextNode(`${beginDate.format('MMM')}`);
-
-
+    monthValue = document.createTextNode(`${beginDate.format("MMM")}`);
   }
   // else {
 
@@ -38,7 +36,6 @@ for (diff; diff > 0; diff -= 7) {
   headerCellWrapper.appendChild(monthValue);
   row.appendChild(headerCellWrapper);
 
-
   for (i = 0; i <= 6; i++) {
     beginDate.add(1, "days");
     const content = document.createTextNode(` `);
@@ -48,41 +45,40 @@ for (diff; diff > 0; diff -= 7) {
     row.appendChild(cellWrapper);
   }
 
-
-
-
-
   tableWrapper.appendChild(row);
 }
 
-tableWrapper.addEventListener('click', activate_cell, false);
+tableWrapper.addEventListener("click", activate_cell, false);
 
 function activate_cell(event) {
-
-  if (event.target.classList.contains('cell')) {
+  if (
+    event.target.classList.contains("cell") &&
+    selectedColor != getComputedStyle(event.target).backgroundColor
+  ) {
+    console.log(getComputedStyle(event.target).backgroundColor);
+    console.log(selectedColor);
     event.target.style.backgroundColor = selectedColor;
-    cellsCount += 1;
-    if (selectedColor == 'rgb(235, 237, 240)') {
+    if (selectedColor == "rgb(235, 237, 240)") {
       cellsCount -= 1;
-    } else { }
+    } else {
+      cellsCount += 1;
+    }
     activeCellscount.innerHTML = cellsCount;
   }
 }
 
-const colorPickerwrapper = document.getElementById('colorPickerwrapper')
-colorPickerwrapper.addEventListener('click', changeColor, false);
-let currentColorId = 'col5';
+const colorPickerwrapper = document.getElementById("colorPickerwrapper");
+colorPickerwrapper.addEventListener("click", changeColor, false);
+let currentColorId = "col5";
 function changeColor(event) {
-  if (event.target.classList.contains('colorOption')) {
+  if (event.target.classList.contains("colorOption")) {
     console.log(document.getElementById(currentColorId));
-    document.getElementById(currentColorId).classList.remove('selected');
-    if (!event.target.classList.contains('selected')) {
+    document.getElementById(currentColorId).classList.remove("selected");
+    if (!event.target.classList.contains("selected")) {
       currentColorId = event.target.id;
-      event.target.classList.add('selected');
+      event.target.classList.add("selected");
       selectedColor = getComputedStyle(event.target).backgroundColor;
-      console.log(selectedColor)
-
+      console.log(selectedColor);
     }
   }
-
 }
