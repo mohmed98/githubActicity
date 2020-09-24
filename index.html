@@ -1,52 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github acticity Clone</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-178898023-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Github acticity Clone</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-</head>
+      gtag("config", "UA-178898023-1");
+    </script>
+  </head>
 
-<body>
-  <header>
-    <div class="header">
-      <h1>Github profile Activity clone</h1>
-      <div class="siteInfoWrapper">
-        <span class="siteInfo">Made by <a href="https://mohamedatta.netlify.app/" target="_blank"
-            class="externalLink">Mohamed Atta</a></span>
-        <span class="siteInfo">Project code <a href="https://github.com/mohmed98/githubActicity" target="_blank"
-            class="externalLink">here</a></span>
+  <body>
+    <header>
+      <div class="header">
+        <h1>Github profile Activity clone</h1>
+        <div class="siteInfoWrapper">
+          <span class="siteInfo"
+            >Made by
+            <a
+              href="https://mohamedatta.netlify.app/"
+              target="_blank"
+              class="externalLink"
+              >Mohamed Atta</a
+            ></span
+          >
+          <span class="siteInfo"
+            >Project code
+            <a
+              href="https://github.com/mohmed98/githubActicity"
+              target="_blank"
+              class="externalLink"
+              >here</a
+            ></span
+          >
+        </div>
       </div>
+    </header>
+    <main class="main">
+      <div>
+        <span class="cont-count" id="activeCellsCount"></span>
 
-    </div>
-  </header>
-  <main class="main">
+        <span> contributions in the last year</span>
+      </div>
+      <div class="table-container" id="tableWrapper"></div>
+      <div class="colorPickerWrapper" id="colorPickerwrapper">
+        <span>Less</span>
+        <div class="colorOption" id="col1"></div>
+        <div class="colorOption" id="col2"></div>
+        <div class="colorOption" id="col3"></div>
+        <div class="colorOption" id="col4"></div>
+        <div class="colorOption selected" id="col5"></div>
 
-    <div>
-      <span class="cont-count" id="activeCellsCount"></span>
+        <span>More</span>
+      </div>
+    </main>
+    <script src="https://unpkg.com/moment"></script>
 
-      <span> contributions in the last year</span>
-    </div>
-    <div class="table-container" id="tableWrapper"></div>
-    <div class="colorPickerWrapper" id="colorPickerwrapper">
-      <span>Less</span>
-      <div class="colorOption" id="col1"></div>
-      <div class="colorOption" id="col2"></div>
-      <div class="colorOption" id="col3"></div>
-      <div class="colorOption" id="col4"></div>
-      <div class="colorOption selected" id="col5"></div>
-
-      <span>More</span>
-    </div>
-  </main>
-  <script src="https://unpkg.com/moment"></script>
-
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>
