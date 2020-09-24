@@ -6,9 +6,7 @@ let selectedColor = "rgb(33, 110, 57)";
 const activeCellscount = document.getElementById("activeCellsCount");
 let cellsCount = 0;
 activeCellscount.innerHTML = cellsCount;
-// console.log(date._d);
-// console.log(beginDate);
-// console.log(date.diff(beginDate, "days"));
+
 
 const tableWrapper = document.getElementById("tableWrapper");
 const table = document.createElement("table");
@@ -18,18 +16,17 @@ for (diff; diff > 0; diff -= 7) {
   let row = document.createElement("tr");
   row.className = "row";
 
-  // console.log(`
-  // monthTracker ${monthTracker.format('MMM')}`)
-  // console.log(`beginDate ${beginDate.format('MMM')}`)
+
 
   let monthValue = document.createTextNode(` `);
   if (monthTracker.format("MMM") == beginDate.format("MMM")) {
+    console.log(beginDate.format('D'))
     monthTracker.add(1, "months");
-    monthValue = document.createTextNode(`${beginDate.format("MMM")}`);
+    if (beginDate.format('D') < 20) {
+      monthValue = document.createTextNode(`${beginDate.format("MMM")}`);
+    }
   }
-  // else {
 
-  // }
 
   const headerCellWrapper = document.createElement("td");
   headerCellWrapper.className = "headerCell";
@@ -55,8 +52,7 @@ function activate_cell(event) {
     event.target.classList.contains("cell") &&
     selectedColor != getComputedStyle(event.target).backgroundColor
   ) {
-    console.log(getComputedStyle(event.target).backgroundColor);
-    console.log(selectedColor);
+
     event.target.style.backgroundColor = selectedColor;
     if (selectedColor == "rgb(235, 237, 240)") {
       cellsCount -= 1;
@@ -72,13 +68,11 @@ colorPickerwrapper.addEventListener("click", changeColor, false);
 let currentColorId = "col5";
 function changeColor(event) {
   if (event.target.classList.contains("colorOption")) {
-    console.log(document.getElementById(currentColorId));
     document.getElementById(currentColorId).classList.remove("selected");
     if (!event.target.classList.contains("selected")) {
       currentColorId = event.target.id;
       event.target.classList.add("selected");
       selectedColor = getComputedStyle(event.target).backgroundColor;
-      console.log(selectedColor);
     }
   }
 }
